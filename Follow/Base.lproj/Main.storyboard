@@ -29,6 +29,9 @@
                                         <buttonConfiguration key="configuration" style="plain">
                                             <backgroundConfiguration key="background" image="burger_menu"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="toggleMenu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XJZ-Ob-MAn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -45,17 +48,32 @@
                                     <constraint firstAttribute="height" constant="50" id="epx-bj-xIB"/>
                                 </constraints>
                             </imageView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BnU-xU-Bw3">
+                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Cc9-lq-fef" firstAttribute="centerX" secondItem="P17-UG-Q9o" secondAttribute="centerX" id="4P2-rf-x5T"/>
+                            <constraint firstItem="BnU-xU-Bw3" firstAttribute="top" secondItem="P17-UG-Q9o" secondAttribute="bottom" id="Cme-JH-nVv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BnU-xU-Bw3" secondAttribute="trailing" id="FnI-jC-wpt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P17-UG-Q9o" secondAttribute="trailing" id="KOb-Y3-lXP"/>
                             <constraint firstItem="P17-UG-Q9o" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Y6T-L6-jwM"/>
+                            <constraint firstItem="BnU-xU-Bw3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eMO-Tf-1Fi"/>
+                            <constraint firstItem="BnU-xU-Bw3" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="gVA-cA-YR6"/>
                             <constraint firstItem="P17-UG-Q9o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ngC-sh-rBn"/>
                             <constraint firstItem="Cc9-lq-fef" firstAttribute="centerY" secondItem="P17-UG-Q9o" secondAttribute="centerY" id="wPW-z6-2dO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="BnU-xU-Bw3" id="hgD-mK-4X1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
