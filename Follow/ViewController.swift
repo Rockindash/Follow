@@ -10,10 +10,9 @@ import WebKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var webView: WKWebView!
-    
     // Bool to manage state of hamburger menu
     var isToggled = false
+    @IBOutlet weak var webView: WKWebView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,7 @@ class ViewController: UIViewController {
         
         // Checking the state of hamburger menu
         // By fetching the value of 'aria-expanded'
-        webView.evaluateJavaScript("document.getElementsByClassName('navbar-toggler svg-svg-20-hamburger svg-image d-lg-none')[0].getAttribute('aria-expanded')", completionHandler: { (html: Any?, error: Error?) in
+        webView.evaluateJavaScript(checkToggle, completionHandler: { (html: Any?, error: Error?) in
             self.isToggled = (html as! String).toBool()
             self.handleToggle()
         })
@@ -38,9 +37,9 @@ class ViewController: UIViewController {
         
         // Opening or clossing the menu based on isToggled
         if isToggled {
-            webView.evaluateJavaScript("document.getElementsByClassName('close-button')[0].click()", completionHandler: nil)
+            webView.evaluateJavaScript(closeMenu, completionHandler: nil)
         } else {
-            webView.evaluateJavaScript("document.getElementsByClassName('navbar-toggler svg-svg-20-hamburger svg-image d-lg-none')[0].click()", completionHandler: nil)
+            webView.evaluateJavaScript(openMenu, completionHandler: nil)
         }
     }
 }
